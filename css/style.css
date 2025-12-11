@@ -1,0 +1,400 @@
+/* ----------------------------------- */
+/* Styles de Base et Structure Générale */
+/* ----------------------------------- */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+    padding-top: 60px; /* Espace pour le header fixe */
+}
+
+/* Styles Header/Navigation/Footer */
+header {
+    background-color: #6d071a;
+    color: white;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 10px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    
+    /* Pour aligner le toggle et la nav sur mobile/desktop */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centre le menu desktop */
+}
+/* Bouton hamburger masqué sur desktop */
+#menu-toggle {
+    display: none; 
+}
+nav {
+    text-align: center;
+}
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 0;
+    display: inline-block;
+}
+.hero {
+    text-align: center;
+    padding: 60px 20px;
+    background-color: white;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.hero h1 {
+    color: #6d071a; 
+}
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #6d071a;
+    color: white;
+    width: 100%;
+    margin-top: 40px;
+}
+
+/* ----------------------------------- */
+/* Styles de la Page d'Accueil Spécifiques */
+/* ----------------------------------- */
+.photo-lightbox-trigger {
+    display: inline-block;
+    cursor: pointer;
+}
+
+/* ----------------------------------- */
+/* Styles de la Section Projets (index.html) */
+/* ----------------------------------- */
+#projets {
+    padding: 40px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+    background-color: white;
+}
+#projets h2 {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #333;
+}
+.projet-ligne {
+    display: flex;
+    align-items: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+@media (max-width: 768px) {
+    .projet-ligne { flex-direction: column; text-align: center; }
+    .projet-media { margin-bottom: 15px; }
+}
+.projet-media {
+    flex: 0 0 250px;
+    margin-right: 30px;
+    overflow: hidden;
+    border-radius: 4px;
+}
+.projet-media img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+}
+.projet-details { flex-grow: 1; }
+.projet-details h3 { color: #6d071a; margin-top: 0; }
+.projet-details p { margin-bottom: 15px; color: #555; }
+.bouton-details {
+    display: inline-block;
+    padding: 10px 15px;
+    background-color: #6d071a;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.2s;
+    font-weight: bold;
+}
+.bouton-details:hover {
+    background-color: #4f0513; 
+}
+
+.hero strong {
+    color: #6d071a;
+}
+/* ----------------------------------- */
+/* Styles de la Page Projet Spécifiques (oz.html) */
+/* ----------------------------------- */
+.couverture {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+}
+
+/* ----------------------------------- */
+/* Styles des Galeries de Photos (Communs aux deux pages) */
+/* ----------------------------------- */
+#photos-spectacle, #photos-creation, #photos {
+    padding: 40px 0;
+    text-align: center;
+    background-color: #f8f8f8;
+}
+.galerie-scroll-container {
+    display: flex;
+    overflow-x: scroll;
+    padding: 20px;
+    margin: 20px 0;
+    scroll-snap-type: x mandatory;
+    gap: 15px;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+.galerie-scroll-container::-webkit-scrollbar {
+    display: none;
+}
+.photo-scroll-item {
+    flex-shrink: 0;
+    width: 300px;
+    cursor: pointer;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    scroll-snap-align: start;
+}
+.photo-scroll-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    display: block;
+}
+.photo-caption {
+    padding: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+/* ----------------------------------- */
+/* Styles pour la Lightbox (Modal) */
+/* ----------------------------------- */
+#lightbox-modal {
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+#lightbox-img {
+    max-width: 90%;
+    max-height: 90%;
+    display: block;
+    margin: auto;
+}
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.close-btn:hover {
+    color: #bbb;
+}
+
+/* Styles pour les liens des timecodes */
+.timecode-links {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap; 
+}
+.timecode-jump {
+    text-decoration: none;
+    color: #6d071a;
+    font-weight: bold;
+    padding: 5px 10px;
+    border: 1px solid #6d071a;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+.timecode-jump:hover {
+    background-color: #6d071a;
+    color: white;
+}
+/* Style pour le bouton PDF */
+.bouton-pdf {
+    display: inline-block;
+    padding: 12px 25px;
+    margin-top: 20px;
+    background-color: #6d071a; /* Couleur de votre thème */
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    border: 2px solid #6d071a;
+}
+
+.bouton-pdf:hover {
+    background-color: #4f0513;
+    border-color: #4f0513;
+}
+/* ----------------------------------- */
+/* Styles du Menu Latéral Fixe (Sidebar Sticky Nav) - Desktop */
+/* ----------------------------------- */
+
+/* Le contenu principal est décalé pour laisser la place au menu latéral */
+main {
+    margin-left: 180px; 
+}
+
+#sidebar-nav-container {
+    display: none; /* Caché par défaut, affiché par JS au scroll sur desktop */
+    
+    position: fixed; 
+    top: 60px; /* Commence juste sous le header principal */
+    left: 0;
+    width: 180px; 
+    height: calc(100vh - 60px); 
+    background-color: #f8f8f8; 
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    z-index: 900; 
+    overflow-y: auto; 
+    padding-top: 20px;
+}
+
+#sticky-nav {
+    display: block; 
+    text-align: left; 
+    width: 100%;
+    padding: 0; 
+}
+
+#sticky-nav a {
+    color: #6d071a; 
+    margin: 0;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px; 
+    display: block; 
+    transition: background-color 0.2s, color 0.2s;
+    border-radius: 0;
+    border-left: 3px solid transparent; 
+}
+
+#sticky-nav h3 {
+    color: black; 
+    margin: 0;
+    text-decoration: none;
+    padding: 10px 15px; 
+    display: block; 
+    transition: background-color 0.2s, color 0.2s;
+    border-radius: 0;
+    border-left: 3px solid transparent; 
+}
+
+#sticky-nav a:hover {
+    background-color: #eee;
+    color: #4f0513;
+    border-left: 3px solid #6d071a; 
+}
+
+
+/* ----------------------------------- */
+/* Styles Adaptatifs pour Mobile (< 900px) */
+/* ----------------------------------- */
+@media (max-width: 900px) {
+    
+    /* 1. LAYOUT & HEADER MOBILE */
+    
+    /* Le contenu principal prend toute la largeur */
+    main {
+        margin-left: 0; 
+    }
+
+    
+    /* Le bouton hamburger est affiché dans le header fixe */
+    #menu-toggle {
+        display: block; 
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        cursor: pointer;
+        padding: 10px 15px;
+        line-height: 1;
+        z-index: 1010;
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 50px; /* Aligne la hauteur */
+    }
+
+    /* 2. MENU PANNEAU COULISSANT */
+    
+    /* Le conteneur du menu latéral est positionné comme un panneau coulissant */
+    #sidebar-nav-container {
+        /* On annule le 'top: 60px' pour prendre toute la hauteur */
+        top: 0;
+        left: -250px; /* Masqué par défaut */
+        width: 250px; 
+        height: 100vh;
+        background-color: #333; 
+        box-shadow: 4px 0 10px rgba(0, 0, 0, 0.5);
+        z-index: 1000; 
+        transition: left 0.3s ease-out; 
+        display: block; 
+        padding-top: 60px; /* Espace le contenu du panneau du haut de l'écran */
+    }
+
+    /* Liens du panneau sur mobile (fond sombre) */
+    #sticky-nav a {
+        color: #f4f4f4; 
+        font-weight: normal;
+        padding: 15px 20px;
+        border-left: 3px solid transparent;
+    }
+    #sticky-nav h3 {
+        color: #4f0513; 
+        font-weight: normal;
+        padding: 15px 20px;
+        border-left: 3px solid transparent;
+    }
+
+    #sticky-nav a:hover {
+        background-color: #4f0513;
+        color: #ffd700;
+        border-left: 3px solid #ffd700;
+    }
+    
+    /* 3. ÉTAT OUVERT */
+    
+    /* Déplace le panneau pour le rendre visible */
+    .menu-ouvert #sidebar-nav-container {
+        left: 0; 
+    }
+    
+    /* Empêche le défilement du corps de la page lorsque le menu est ouvert */
+    .menu-ouvert body {
+        overflow: hidden; 
+    }
+}

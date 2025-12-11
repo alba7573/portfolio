@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alexandre Albaret - Portfolio</title>
+  
+  <link rel="stylesheet" href="css/style.css"> 
+  
+  <meta name="description" content="Portfolio d'Alexandre Albaret, axé sur la création théâtrale.">
+  <link rel="icon" href="/favicon.ico">
+</head>
+
+<body>
+   <header>
+        <nav>
+            <a href="#accueil">Accueil</a>
+            <a href="#projets">Projets</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <section id="accueil" class="hero">
+          <div class="photo-lightbox-trigger" data-full-img="avatar.png">
+            <img src="avatar.png" alt="Photo de Profil" style="width: 300px; height: 300px; border-radius: 50%; object-fit: cover; margin-bottom: 20px;">
+          </div>
+          
+            <h1>Alexandre Albaret</h1>
+            <h2>Portfolio de création théâtrale</h2>
+            <a href="#projets" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background-color: #6d071a; color: white; text-decoration: none; border-radius: 5px;">Voir mes Projets</a>
+        </section>
+        <section id="projets">
+          <h2>Réalisations</h2>
+          <div class="projet-ligne">
+                <div class="projet-media">
+                    <img src="projets/bee/1.png" alt="Aperçu du projet Drole d'abeille">
+                </div>
+                <div class="projet-details">
+                    <h3>Drôle d'abeille: en 10 min (création, 2025)</h3>
+                    <p>Comment résumer un film d'animation d'une heure et demi en moins de 10 minute? C'est le défi qu'on s'est donné dans le cadre du projet final du cours de technique de scène.(École supérieure de théatre de l'UQÀM).</p>
+                    <a href="projets/bee.html" class="bouton-details">En savoir plus</a>
+                </div>
+            </div>
+            <div class="projet-ligne">
+                <div class="projet-media">
+                    <img src="projets/performance-stuart/IMG_0011 2.jpeg" alt="Aperçu du projet Start (performance)">
+                </div>
+                <div class="projet-details">
+                    <h3>La poupée (performance, 2025)</h3>
+                    <p>Création et interprétation d'une performance inspirée de la pièce Marie Stuart (Schiller). Réalisé comme une suite du travail précédant, dans le cadre du cours Mise en scène I (École supérieure de théatre de l'UQÀM).</p>
+                    <a href="projets/performance-stuart.html" class="bouton-details">En savoir plus</a>
+                </div>
+            </div>
+            <div class="projet-ligne">
+                <div class="projet-media">
+                    <img src="projets/marie-stuart/4.png" alt="Aperçu de marie stuart">
+                </div>
+                <div class="projet-details">
+                    <h3>Mortimer (Mise en scène, 2025)</h3>
+                    <p>Direction d'une répétition de 45 minutes et présentation d'une scène de Marie Stuart (Schiller). Réalisé dans le cadre du cours de Mise en scène (École supérieure de théatre de l'UQÀM).</p>
+                    <a href="projets/marie-stuart.html" class="bouton-details">En savoir plus</a>
+                </div>
+            </div>
+            <div class="projet-ligne">
+                <div class="projet-media">
+                    <img src="projets/note/apple-notes.webp" alt="Aperçu du Projet Note">
+                </div>
+                <div class="projet-details">
+                    <h3>Note (écriture, 2024)</h3>
+                    <p>Très court texte, entre monologue théatral et poème en prose, prenant son concept dans les notes qu'on adresse à personne, perdu dans un téléphone. Lu et interprété lors d'une soirée "atelier libre" (École de théatre du Cégep de Saint-Hyacinthe).</p>
+                    <a href="projets/note.html" class="bouton-details">En savoir plus</a>
+                </div>
+            </div>
+            <div class="projet-ligne">
+                <div class="projet-media">
+                    <img src="projets/oz/5.jpg" alt="Aperçu du Projet Oz">
+                </div>
+                <div class="projet-details">
+                    <h3>Le magicien d'Oz et les aventuriers de ChatGPT (création, 2024)</h3>
+                    <p>Écriture, conception et mise en scène d'une satire en 3 actes sur l'utilisation abusive des intelligences artificielles, sous une trame du Magicien d'OZ. Projet réalisé dans le cadre de l'épreuve synthèse de programme d'art, lettre et communication profil théatre (Cégep Limoilou).</p>
+                    <a href="projets/oz.html" class="bouton-details">En savoir plus</a>
+                </div>
+            </div>
+        </section>
+      
+    </main>
+
+    <footer id="contact">
+        <p>&copy; 2026 Alexandre Albaret. Tous droits réservés.</p>
+        <p>Oui oui, c'est bien moi qui ai programmé ce site!</p>
+        <p>Contactez-moi : alex.albaba@gmail.com | 418-446-0841</p>
+    </footer>
+    
+    <div id="lightbox-modal" style="display: none;">
+        <span class="close-btn">&times;</span>
+        <img id="lightbox-img" src="" alt="Image Agrandie">
+    </div>
+
+    <script src="js/scripts.js"></script>
+
+</body>
+
+</html>

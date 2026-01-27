@@ -139,48 +139,78 @@ footer {
 }
 
 /* ----------------------------------- */
-/* Styles des Galeries de Photos (Communs aux deux pages) */
+/* Styles des Galeries de Photos (simplifiés) */
+/* Grille responsive pour aligner toutes les vignettes proprement */
 /* ----------------------------------- */
-#photos-spectacle, #photos-creation, #photos {
+#photos-spectacle, #photos-creation, #photos, #photos-preview, #gallery-all {
     padding: 40px 0;
     text-align: center;
     background-color: #f8f8f8;
 }
 .galerie-scroll-container {
-    display: flex;
-    overflow-x: scroll;
-    padding: 20px;
-    margin: 20px 0;
-    scroll-snap-type: x mandatory;
-    gap: 15px;
-    -webkit-overflow-scrolling: touch;
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-}
-.galerie-scroll-container::-webkit-scrollbar {
-    display: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px;
+    padding: 12px;
+    margin: 0 auto;
+    max-width: 1000px;
+    justify-items: center;
 }
 .photo-scroll-item {
-    flex-shrink: 0;
-    width: 300px;
+    width: 100%;
+    max-width: 320px;
     cursor: pointer;
     background-color: white;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    scroll-snap-align: start;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition: transform 180ms ease, box-shadow 180ms ease;
+}
+.photo-scroll-item:hover {
+    transform: translateY(-6px) scale(1.01);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
 }
 .photo-scroll-item img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
     display: block;
 }
 .photo-caption {
-    padding: 10px;
-    font-weight: bold;
+    padding: 8px 10px;
+    font-weight: 600;
     color: #333;
+    text-align: center;
+    font-size: 0.95rem;
+}
+
+/* Header for section titles with action (button) */
+.section-header {
+    max-width: 1000px;
+    margin: 0 auto 8px auto;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center; /* center group */
+    gap: 16px;
+}
+.section-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+    color: #222;
+    font-weight: 700;
+}
+.section-header .bouton-pdf {
+    margin: 0;
+}
+@media (max-width: 700px) {
+    .section-header {
+        flex-direction: column;
+        align-items: center;
+    }
+    .section-header .bouton-pdf {
+        margin-top: 8px;
+    }
 }
 
 /* ----------------------------------- */
@@ -243,20 +273,22 @@ footer {
 /* Style pour le bouton PDF */
 .bouton-pdf {
     display: inline-block;
-    padding: 12px 25px;
-    margin-top: 20px;
-    background-color: #6d071a; /* Couleur de votre thème */
+    padding: 8px 18px;
+    background-color: #6d071a;
     color: white;
     text-decoration: none;
-    font-weight: bold;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+    font-weight: 700;
+    border-radius: 6px;
+    transition: background-color 180ms ease, transform 120ms ease, box-shadow 180ms ease;
     border: 2px solid #6d071a;
+    box-shadow: 0 6px 12px rgba(109,7,26,0.12);
 }
 
 .bouton-pdf:hover {
     background-color: #4f0513;
     border-color: #4f0513;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(109,7,26,0.16);
 }
 /* ----------------------------------- */
 /* Styles du Menu Latéral Fixe (Sidebar Sticky Nav) - Desktop */

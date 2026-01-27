@@ -216,6 +216,7 @@ footer {
 /* ----------------------------------- */
 /* Styles pour la Lightbox (Modal) */
 /* ----------------------------------- */
+
 #lightbox-modal {
     position: fixed;
     z-index: 1000;
@@ -229,6 +230,49 @@ footer {
     justify-content: center;
     align-items: center;
 }
+
+/* ----------------------------------- */
+/* Video section — button spacing & styling */
+/* ----------------------------------- */
+#video .video-actions {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#video .bouton-pdf {
+    padding: 10px 22px;
+    font-size: 1rem;
+    border-radius: 10px;
+    background: linear-gradient(180deg, #8b0f26 0%, #6d071a 100%);
+    box-shadow: 0 10px 26px rgba(109,7,26,0.12);
+    border: 0;
+}
+
+#video .bouton-pdf .btn-icon {
+    display: inline-block;
+    margin-right: 8px;
+    font-weight: 700;
+    transform: translateY(-1px);
+}
+
+#video .bouton-pdf:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 18px 40px rgba(109,7,26,0.16);
+}
+
+/* Supprime l'espace en bas de la section vidéo et rapproche la section suivante */
+#video {
+    margin-bottom: 0; /* override .hero default */
+    padding-bottom: 12px; /* moins d'espace interne */
+}
+
+/* Si la section suivante est une .hero, enlever son margin-top pour éviter un grand trou */
+#video + .hero {
+    margin-top: 0;
+}
+
 #lightbox-img {
     max-width: 90%;
     max-height: 90%;

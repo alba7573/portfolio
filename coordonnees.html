@@ -15,23 +15,35 @@
         <nav>
             <a href="index.html">Accueil</a>
             <a href="projets.html">Projets</a>
+            <a href="etudes.html">Études</a>
             <a href="coordonnees.html">Contact</a>
         </nav>
     </header>
+    <aside id="sidebar-nav-container">
+        <nav id="sticky-nav">
+            <h3>Navigation</h3>
+        </nav>
+    </aside>
 
     <main>
-        <section class="hero" style="max-width:800px; margin:40px auto;">
-            <h1>Contact</h1>
-            <p><strong>Email :</strong> <a href="mailto:alex.albaba@gmail.com">alex.albaba@gmail.com</a></p>
-            <p><strong>Téléphone :</strong> 418-446-0841</p>
-            <p><strong>Crédits & site :</strong> &copy; 2026 Alexandre Albaret. Tous droits réservés.</p>
-            <p>Oui oui, c'est bien moi qui ai programmé ce site!</p>
-        </section>
+        <div class="page-wrapper">
+            <div class="page-content">
+                <section class="hero" style="max-width:800px; width:100%;">
+                    <h1>Contact</h1>
+                    <p><strong>Email :</strong> <a href="mailto:alex.albaba@gmail.com">alex.albaba@gmail.com</a></p>
+                    <p><strong>Téléphone :</strong> 418-446-0841</p>
+                    <p><strong>Crédits & site :</strong> &copy; 2026 Alexandre Albaret. Tous droits réservés.</p>
+                    <p>Oui oui, c'est bien moi qui ai programmé ce site!</p>
+                    <p style="margin-top:18px; text-align:center;">
+                        <a class="return-btn" href="index.html" aria-label="Retour à l'accueil">⟵ Retour à l'accueil</a>
+                    </p>
+                </section>
+            </div>
+            <footer style="flex-shrink:0; text-align:center; padding:16px 0; background:#6d071a; color:#fff;">
+                <p style="margin:6px 0; font-size:0.95rem">&copy; 2026 Alexandre Albaret. Tous droits réservés.</p>
+            </footer>
+        </div>
     </main>
-
-    <footer>
-        <p><a href="index.html">Retour à l'accueil</a></p>
-    </footer>
 
     <script src="js/scripts.js"></script>
 </body>

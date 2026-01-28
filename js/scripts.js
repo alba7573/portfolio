@@ -67,9 +67,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (window.innerWidth > 900) {
                 stickyNavContainer.style.display = 'block';
                 document.body.classList.remove('menu-ouvert'); // Assurer la propreté si on resize depuis le mobile
+                // remove mobile close button if present
+                const existingClose = document.getElementById('sidebar-close');
+                if (existingClose) existingClose.remove();
             } else if (!document.body.classList.contains('menu-ouvert')) {
                 // Sur mobile, si on n'est pas en mode 'ouvert', on le masque explicitement
                 stickyNavContainer.style.display = 'none';
+                const existingClose = document.getElementById('sidebar-close');
+                if (existingClose) existingClose.style.display = 'none';
             }
         };
 
@@ -104,6 +109,8 @@ document.addEventListener('DOMContentLoaded', () => {
                             // Attendre la fin de la transition CSS pour masquer le panneau
                             setTimeout(() => {
                                 stickyNavContainer.style.display = 'none';
+                                const existingClose = document.getElementById('sidebar-close');
+                                if (existingClose) existingClose.style.display = 'none';
                             }, 300); 
                         }
                     }
@@ -118,16 +125,42 @@ document.addEventListener('DOMContentLoaded', () => {
         if (menuToggle) {
             menuToggle.addEventListener('click', () => {
                 const isOpen = body.classList.toggle('menu-ouvert');
-                
+
+                // Manage a mobile 'close' button placed at top of the sidebar
+                let sidebarClose = document.getElementById('sidebar-close');
                 if (window.innerWidth <= 900) {
                     if (isOpen) {
                         stickyNavContainer.style.display = 'block';
+                        // create close button if not present
+                        if (!sidebarClose) {
+                            sidebarClose = document.createElement('button');
+                            sidebarClose.id = 'sidebar-close';
+                            sidebarClose.setAttribute('aria-label', 'Fermer le menu');
+                            sidebarClose.innerText = '✕';
+                            // prepend to the sticky nav so it sits at the top
+                            const stickyNav = document.getElementById('sticky-nav');
+                            if (stickyNav) stickyNav.insertBefore(sidebarClose, stickyNav.firstChild);
+                            // click closes the menu (same behaviour as toggle)
+                            sidebarClose.addEventListener('click', () => {
+                                body.classList.remove('menu-ouvert');
+                                setTimeout(() => {
+                                    stickyNavContainer.style.display = 'none';
+                                }, 300);
+                                sidebarClose.style.display = 'none';
+                            });
+                        } else {
+                            sidebarClose.style.display = 'inline-block';
+                        }
                     } else {
                         // Délai pour laisser le temps à l'animation de fermeture de s'exécuter
                         setTimeout(() => {
                             stickyNavContainer.style.display = 'none';
                         }, 300);
+                        if (sidebarClose) sidebarClose.style.display = 'none';
                     }
+                } else {
+                    // On desktop the mobile close is irrelevant; ensure it's removed
+                    if (sidebarClose) sidebarClose.remove();
                 }
             });
         }

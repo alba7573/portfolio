@@ -230,6 +230,22 @@ footer {
     object-fit: cover;
     display: block;
 }
+.photo-grid-4 {
+    /* Force 4 colonnes sur grand écran */
+    grid-template-columns: repeat(4, 1fr);
+}
+
+@media (max-width: 1000px) {
+    .photo-grid-4 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (max-width: 700px) {
+    .photo-grid-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 450px) {
+    .photo-grid-4 { grid-template-columns: 1fr; }
+}
 .photo-caption {
     padding: 8px 10px;
     font-weight: 600;
@@ -387,6 +403,49 @@ footer {
     border-color: #4f0513;
     transform: translateY(-2px);
     box-shadow: 0 12px 28px rgba(109,7,26,0.16);
+}
+
+/* ----------------------------------- */
+/* Styles pour les sections de contenu (pages d'études) */
+/* Harmonise l'apparence avec les pages de projets */
+/* ----------------------------------- */
+.content-block {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    padding: 28px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    border-radius: 8px;
+    color: #333;
+    line-height: 1.65;
+}
+.content-block h3 {
+    color: #6d071a;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
+.content-block h4 {
+    color: #222;
+    margin: 18px 0 8px 0;
+    font-size: 1.05rem;
+}
+.content-block p {
+    margin: 0 0 12px 0;
+    color: #444;
+}
+.content-block ul {
+    margin: 8px 0 12px 1.1rem;
+}
+.content-block li {
+    margin-bottom: 10px;
+    color: #444;
+}
+@media (max-width: 700px) {
+    .content-block {
+        padding: 18px;
+        margin: 12px;
+    }
 }
 
 /* ----------------------------------- */
